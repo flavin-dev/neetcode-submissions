@@ -4,13 +4,14 @@ public:
         if(s.size()!=t.size()){
             return false;
         }
-        vector<int>alp(26,0);
+        vector<int>freqs(26,0);
+        vector<int>freqt(26,0);
         for(int i=0;i<s.size();i++){
-            alp[s[i]-'a']++;
-            alp[t[i]-'a']--;
+            freqs[s[i]-'a']++;
+            freqt[t[i]-'a']++;
         }
-        for(int n:alp){
-            if(n!=0){
+        for(int i=0;i<26;i++){
+            if(freqs[i]!=freqt[i]){
                 return false;
             }
         }
