@@ -1,15 +1,15 @@
 class Solution {
 public:
     int climbStairs(int n) {
-        if(n==1) return 1;
-        if(n==2) return 2;
-        vector<int>dp(n);
-        dp[n-1]=1;
-        dp[n-2]=2;
-
-        for(int i=n-3;i>=0;i--){
-            dp[i]=dp[i+1]+dp[i+2];
+        if(n<=3){
+            return n;
         }
-        return dp[0];
+        int one=1,two=1;
+        for(int i=0;i<n-1;i++){
+            int temp=one;
+            one=one+two;
+            two=temp;
+        }
+        return one;
     }
 };
